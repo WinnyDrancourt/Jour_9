@@ -72,17 +72,73 @@ def repartition
     end
 end
 
+def menu 
+    puts " Selectionnez une question :"
+    puts
+    puts "[1] Combien y a-t-il de handle dans cette array ?"
+    puts "[2] Quel est le handle le plus court de cette liste ?"
+    puts "[3] Combien y-a-t-il de handle contenant 5 caratères (le @ ne compte pas) ?"
+    puts "[4] Combien commencent par une majuscule (1er lettre après le @) ?"
+    puts "[5] Trie la liste de handle par ordre alphabétique."
+    puts "[6] Trie la liste de handle par taille de handle (du plus petit au plus grand)"
+    puts "[7] Quelle est la position dans l'array de la personne @epenser ?"
+    puts "[8] Répartition des handles par longueur."
+    puts "Tout autre valeur = Exit"
+    puts
+    print "> "
+    input = gets.chomp.to_i
+end
+
+def next_
+    print "Enter to return at menu :"
+    option =gets
+end
 
 def perform
     journalist = clean
-    length(journalist)
-    mini(journalist)
-    fivers(journalist)
-    upcase(journalist)
-    alpha
-    croissant(journalist)
-    epenser
-    repartition
+    case menu
+        when 1
+        system "clear"
+            length(journalist)
+        next_
+            perform
+        when 2
+        system "clear"
+            mini(journalist)
+        next_
+            perform
+        when 3
+        system "clear"
+            fivers(journalist)
+        next_
+            perform
+        when 4
+        system "clear"
+            upcase(journalist)
+        next_
+            perform
+        when 5
+        system "clear"
+            alpha
+        next_
+            perform
+        when 6
+        system "clear"
+            croissant(journalist)
+        next_
+            perform
+        when 7
+        system "clear"
+            epenser
+        next_
+            perform
+        when 8
+        system "clear"
+            repartition
+        next_
+            perform
+    end
 end
 
+system "clear"
 perform
