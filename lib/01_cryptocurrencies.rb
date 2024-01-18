@@ -59,6 +59,7 @@ def next_
     option =gets
 end
 def perform
+    system "clear"
     blockchain=h_blockchain
     result = six(blockchain)
     case menu

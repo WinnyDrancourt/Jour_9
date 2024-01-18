@@ -95,6 +95,7 @@ def next_
 end
 
 def perform
+    system "clear"
     journalist = clean
     case menu
         when 1
