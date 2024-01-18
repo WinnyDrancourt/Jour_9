@@ -59,7 +59,8 @@ end
 
 def repartition
     puts "Voici la répartitions des handles en fonction de leurs taille :"
-    for letter in 3..40
+    max_length = twitter.sort_by(&:length)[-1].length
+    for letter in 1..max_length
     count = 0
         twitter.each do |k|
             if k.length == letter
