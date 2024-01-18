@@ -28,22 +28,62 @@ def  six(blockchain)
             result << [crypto, valeur]
         end
     end
+    return result
+end
+
+def six_screen(result)
     print result.sort_by{|crypto, valeur| valeur}
     puts
-    return result
+    
 end
 
 def high_six(result)
     puts "Voici la plus grosse Crypto en dessous de 6000 :"
     puts result.max_by{|crypto, valeur| valeur}
 end
-
-def perform
-    blockchain=h_blockchain
-    max_crypto(blockchain)
-    min_crypto(blockchain)
-    result = six(blockchain)
-    high_six(result)
+def menu 
+    puts " Selectionnez une question :"
+    puts
+    puts "[1] La ou les crypto avec les plus valeur."
+    puts "[2] La ou les crypto qui ont la plus petite valeur."
+    puts "[3] Les cryptos dont le cours est inférieur à 6000"
+    puts "[4] La devise la plus chère parmi celles dont le cours est inférieur à 6000"
+    puts "Tout autre valeur = Exit"
+    puts
+    print "> "
+    input = gets.chomp.to_i
 end
 
+def next_
+    print "Enter to return at menu :"
+    option =gets
+end
+def perform
+    blockchain=h_blockchain
+    result = six(blockchain)
+    case menu
+    when 1
+        system "clear"
+            max_crypto(blockchain)
+        next_
+        perform       
+    when 2
+        system "clear"
+            min_crypto(blockchain)
+        next_
+        perform
+    when 3
+        system "clear"
+            six_screen(result)
+        next_
+        perform
+    when 4
+        system "clear"
+            high_six(result)
+        next_
+        perform
+    end
+end
+
+system "clear"
 perform
